@@ -1,0 +1,131 @@
+.band {
+  --tile: clamp(96px, 10vw, 150px);
+  padding-block: clamp(24px, 3vw, 40px);
+  background: var(--canvas);
+}
+
+/* Faixa reta de ponta a ponta */
+.strip {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: stretch;
+  min-height: var(--tile);
+  background: var(--soma-yellow);
+  border-block: 3px solid var(--soma-blue-deep);
+}
+
+.tiles {
+  display: flex;
+}
+
+.tile {
+  position: relative;
+  width: var(--tile);
+  overflow: hidden;
+  border-inline: 3px solid var(--soma-blue-deep);
+}
+
+.tiles .tile + .tile {
+  border-left: 0;
+}
+
+.tileShape {
+  position: absolute;
+  transition: transform 0.5s var(--ease-bounce);
+}
+
+.tile:hover .tileShape {
+  transform: rotate(18deg) scale(1.1);
+}
+
+.center {
+  inset: 20%;
+  width: 60%;
+  height: 60%;
+}
+
+.corner {
+  inset: 12% 0 0 12%;
+  width: 88%;
+  height: 88%;
+}
+
+/* Frase: linha pequena em cima, "gente feliz!" grande embaixo */
+.slogan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: clamp(18px, 2vw, 26px) var(--gutter);
+  text-align: center;
+  color: var(--soma-blue-deep);
+}
+
+.small {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.1rem, 0.8rem + 1vw, 1.6rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.big {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 1.4rem + 4.6vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--soma-red);
+}
+
+.bang {
+  display: inline-block;
+  color: var(--soma-blue-deep);
+  transform-origin: bottom center;
+  transition: transform 0.4s var(--ease-bounce);
+}
+
+.strip:hover .bang {
+  transform: rotate(12deg) translateY(-4px);
+}
+
+/* sublinhado em forma de sorriso */
+.smileLine {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -0.26em;
+  width: 84%;
+  height: 0.26em;
+  overflow: visible;
+}
+
+.smileLine path {
+  fill: none;
+  stroke: var(--soma-blue-deep);
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+
+@media (max-width: 900px) {
+  .tiles .tile:first-child {
+    display: none;
+  }
+  .tiles .tile + .tile {
+    border-left: 3px solid var(--soma-blue-deep);
+  }
+}
+
+@media (max-width: 560px) {
+  .band {
+    --tile: 56px;
+  }
+  .strip {
+    grid-template-columns: 1fr;
+  }
+  .tiles {
+    display: none;
+  }
+}

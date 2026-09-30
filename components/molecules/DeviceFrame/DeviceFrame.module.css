@@ -1,0 +1,88 @@
+.device {
+  position: relative;
+  background: var(--soma-blue-deep);
+  border: 3px solid var(--soma-blue-deep);
+  box-shadow: 10px 10px 0 var(--soma-yellow);
+}
+
+.browser {
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+.chrome {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 14px;
+  background: var(--soma-blue-deep);
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dots i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--soma-red);
+}
+
+.dots i:nth-child(2) {
+  background: var(--soma-yellow);
+}
+
+.dots i:nth-child(3) {
+  background: var(--unit-garden);
+}
+
+.url {
+  flex: 1;
+  max-width: 360px;
+  margin-inline: auto;
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.phone {
+  padding: 12px;
+  border-radius: 44px;
+}
+
+.notch {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  z-index: 2;
+  width: 34%;
+  height: 22px;
+  margin-left: -17%;
+  border-radius: var(--radius-pill);
+  background: var(--soma-blue-deep);
+}
+
+.viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--canvas);
+}
+
+.phone .viewport {
+  border-radius: 32px;
+}
+
+.frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+  transform-origin: top left;
+}

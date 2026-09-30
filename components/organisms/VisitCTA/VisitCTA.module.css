@@ -1,0 +1,286 @@
+.section {
+  padding-block: clamp(80px, 10vw, 140px) clamp(96px, 11vw, 160px);
+  background: var(--canvas);
+}
+
+/* Cartão amarelo quadriculado */
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 72px);
+  padding: clamp(32px, 5vw, 72px);
+  background-color: var(--soma-yellow);
+  background-image:
+    linear-gradient(rgba(29, 58, 112, 0.08) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(29, 58, 112, 0.08) 1.5px, transparent 1.5px);
+  background-size: 34px 34px;
+  border: 3px solid var(--soma-blue-deep);
+  border-radius: clamp(28px, 4vw, 48px);
+  box-shadow: 10px 10px 0 var(--soma-blue-deep);
+}
+
+.title {
+  margin-top: 20px;
+  font-size: clamp(2.2rem, 1.3rem + 3.4vw, 4.2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  color: var(--soma-blue-deep);
+}
+
+.accent {
+  color: var(--soma-red);
+}
+
+.lead {
+  margin-top: 18px;
+  max-width: 44ch;
+  font-size: var(--text-lg);
+  color: #3a4f78;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+/* ---------- Ingresso ---------- */
+.ticket {
+  position: relative;
+  padding: 22px 22px 0;
+  background: var(--surface);
+  border: 3px solid var(--soma-blue-deep);
+  border-radius: 24px;
+  box-shadow: 6px 6px 0 var(--soma-red);
+}
+
+.ticketHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 2px dashed rgba(29, 58, 112, 0.3);
+}
+
+.ticketBrand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--soma-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ticketBrand img {
+  width: 34px;
+  height: auto;
+}
+
+.ticketNo {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--soma-red);
+}
+
+.ticketFields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0 0;
+}
+
+.ticketFields dt,
+.ticketLabel {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.ticketFields dd {
+  margin: 2px 0 0;
+  font-weight: 800;
+  color: var(--soma-blue-deep);
+}
+
+.ticketLabel {
+  margin-top: 18px;
+}
+
+.units {
+  display: grid;
+  gap: 10px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.unit {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "dot text"
+    "dot go";
+  column-gap: 12px;
+  padding: 12px 14px;
+  border: 2px solid var(--soma-blue-deep);
+  border-radius: 16px;
+  transition: background-color 0.2s ease, transform 0.3s var(--ease-bounce);
+}
+
+.unit:hover {
+  background: var(--soma-sky);
+  transform: translateX(4px);
+}
+
+.unitDot {
+  grid-area: dot;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  border-radius: 50%;
+  background: var(--unit);
+  border: 2px solid var(--soma-blue-deep);
+}
+
+.unitText {
+  grid-area: text;
+  display: grid;
+  gap: 1px;
+  color: var(--soma-blue-deep);
+}
+
+.unitText strong {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.unitText small {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  line-height: 1.35;
+}
+
+.unitAddress {
+  font-weight: 600 !important;
+}
+
+.unitGo {
+  grid-area: go;
+  margin-top: 6px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--soma-red);
+}
+
+/* picote com meias-luas */
+.perforation {
+  position: relative;
+  height: 28px;
+  margin: 16px -22px 0;
+  background-image: radial-gradient(circle, rgba(29, 58, 112, 0.35) 1.6px, transparent 2px);
+  background-size: 12px 28px;
+  background-position: center;
+  background-repeat: repeat-x;
+}
+
+.perforation::before,
+.perforation::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 26px;
+  height: 26px;
+  margin-top: -13px;
+  border-radius: 50%;
+  background: var(--soma-yellow);
+  border: 3px solid var(--soma-blue-deep);
+}
+
+.perforation::before {
+  left: -14px;
+}
+
+.perforation::after {
+  right: -14px;
+}
+
+.stub {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 0 18px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.barcode {
+  width: 110px;
+  height: 28px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--soma-blue-deep) 0 2px,
+    transparent 2px 4px,
+    var(--soma-blue-deep) 4px 7px,
+    transparent 7px 9px,
+    var(--soma-blue-deep) 9px 10px,
+    transparent 10px 13px
+  );
+}
+
+/* ---------- Decoração ---------- */
+.deco {
+  position: absolute;
+  pointer-events: none;
+}
+
+.star {
+  top: -34px;
+  left: -26px;
+  width: clamp(56px, 6vw, 84px);
+  filter: drop-shadow(3px 3px 0 var(--soma-blue-deep));
+  animation: spin 18s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@media (max-width: 1024px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+  .ticket {
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 560px) {
+  .actions > * {
+    flex: 1 1 100%;
+  }
+  .card {
+    box-shadow: 6px 6px 0 var(--soma-blue-deep);
+  }
+  .star {
+    top: -24px;
+    left: -10px;
+  }
+}

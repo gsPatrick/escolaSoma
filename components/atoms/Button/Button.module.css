@@ -1,0 +1,71 @@
+/* Botão "carimbo": sombra sólida deslocada que afunda no clique. */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 2.5px solid var(--soma-blue-deep);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+  box-shadow: var(--stamp);
+  transition:
+    transform 0.25s var(--ease-bounce),
+    box-shadow 0.25s var(--ease-bounce),
+    background-color 0.2s ease;
+}
+
+.button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--soma-blue-deep);
+}
+
+.button:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--soma-blue-deep);
+}
+
+.md {
+  padding: 12px 24px;
+  font-size: 1.0625rem;
+}
+
+.sm {
+  padding: 9px 18px;
+  font-size: 0.975rem;
+  box-shadow: 3px 3px 0 var(--soma-blue-deep);
+}
+
+.lg {
+  padding: 16px 30px;
+  font-size: 1.2rem;
+}
+
+.primary {
+  background: var(--soma-red);
+  color: #fff;
+}
+
+.primary:hover {
+  background: #f0524d;
+}
+
+.secondary {
+  background: var(--surface);
+  color: var(--soma-blue-deep);
+}
+
+.secondary:hover {
+  background: var(--soma-cream);
+}
+
+.icon {
+  display: inline-flex;
+  transition: transform 0.3s var(--ease-bounce);
+}
+
+.button:hover .icon {
+  transform: translateX(3px) rotate(-8deg);
+}

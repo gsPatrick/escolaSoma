@@ -1,0 +1,136 @@
+.about {
+  position: relative;
+  padding-block: clamp(80px, 10vw, 150px);
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(40px, 6vw, 96px);
+}
+
+.title {
+  margin-top: 22px;
+  max-width: 17ch;
+  font-size: clamp(2.1rem, 1.3rem + 3vw, 3.6rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.06;
+  color: var(--soma-blue);
+}
+
+/* Sublinhado ondulado desenhado à mão */
+.accent {
+  color: var(--soma-red);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 10'%3E%3Cpath d='M0 6 Q5 1 10 6 T20 6 T30 6 T40 6' fill='none' stroke='%23f6ca46' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 28px 9px;
+  background-position: 0 100%;
+  padding-bottom: 0.12em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.body {
+  display: grid;
+  gap: 16px;
+  max-width: 56ch;
+  margin-top: 26px;
+  font-size: var(--text-lg);
+  color: var(--ink-soft);
+}
+
+.body strong {
+  color: var(--soma-blue-deep);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding-bottom: 4px;
+  border-bottom: 3px solid var(--soma-yellow);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--soma-blue-deep);
+  transition: gap 0.3s var(--ease-bounce), border-color 0.2s ease;
+}
+
+.link:hover {
+  gap: 14px;
+  border-color: var(--soma-red);
+}
+
+.equation {
+  justify-self: center;
+  width: 100%;
+  max-width: 520px;
+}
+
+/* ---------- Linha do tempo ---------- */
+.timelineWrap {
+  margin-top: clamp(72px, 9vw, 128px);
+}
+
+.timelineTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: clamp(32px, 4vw, 48px);
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.1rem);
+  font-weight: 600;
+  color: var(--soma-blue-deep);
+}
+
+.timelineSquiggle {
+  width: 54px;
+  height: 30px;
+}
+
+/* ---------- Decoração ---------- */
+.deco {
+  position: absolute;
+  pointer-events: none;
+}
+
+.decoSparkles {
+  top: clamp(40px, 6vw, 90px);
+  right: 5%;
+  width: clamp(48px, 5vw, 72px);
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.decoHalf {
+  bottom: -2px;
+  left: -40px;
+  width: clamp(140px, 16vw, 240px);
+  rotate: 90deg;
+  opacity: 0.8;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(0.8) rotate(18deg);
+  }
+}
+
+@media (max-width: 960px) {
+  .intro {
+    grid-template-columns: 1fr;
+  }
+  .equation {
+    max-width: 560px;
+  }
+  .decoHalf {
+    display: none;
+  }
+}

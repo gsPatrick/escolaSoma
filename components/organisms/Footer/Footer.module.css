@@ -1,0 +1,496 @@
+.footer {
+  position: relative;
+  background-color: var(--soma-blue-deep);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1.5px, transparent 1.5px);
+  background-size: 40px 40px;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* ---------- Toldo (babados vermelho/amarelo) ---------- */
+.awning {
+  --s: clamp(36px, 4vw, 56px);
+  position: relative;
+  height: calc(var(--s) * 1.1);
+  background:
+    linear-gradient(90deg, var(--soma-red) 50%, var(--soma-yellow) 50%) 0 0 / calc(var(--s) * 2) 100%;
+}
+
+/* babados: meia-lua de cada listra pendurada (vermelha em 25%, amarela em 75% do ladrilho) */
+.awning::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: calc(var(--s) / 2);
+  background:
+    radial-gradient(circle at 25% 0, var(--soma-red) calc(var(--s) / 2 - 0.5px), transparent calc(var(--s) / 2)),
+    radial-gradient(circle at 75% 0, var(--soma-yellow) calc(var(--s) / 2 - 0.5px), transparent calc(var(--s) / 2));
+  background-size: calc(var(--s) * 2) 100%;
+  filter: drop-shadow(0 4px 0 rgba(0, 0, 0, 0.18));
+}
+
+.awning::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: var(--soma-blue-deep);
+  z-index: 1;
+}
+
+/* ---------- Conteúdo ---------- */
+.main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr) minmax(0, 1fr);
+  gap: clamp(32px, 4vw, 64px);
+  padding-top: clamp(64px, 7vw, 100px);
+  padding-bottom: clamp(40px, 5vw, 64px);
+}
+
+.logoBadge {
+  display: inline-block;
+  padding: 16px 22px;
+  background: var(--soma-sky);
+  border: 3px solid #fff;
+  border-radius: 24px;
+  box-shadow: 6px 6px 0 var(--soma-yellow);
+  transition: transform 0.4s var(--ease-bounce), box-shadow 0.4s var(--ease-bounce);
+}
+
+.logoBadge:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--soma-yellow);
+}
+
+.logoBadge img {
+  width: 150px;
+  height: auto;
+}
+
+.slogan {
+  margin-top: 26px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 1.1rem + 1.2vw, 2rem);
+  line-height: 1.1;
+}
+
+.slogan em {
+  font-style: normal;
+  color: var(--soma-yellow);
+}
+
+.about {
+  margin-top: 12px;
+  max-width: 34ch;
+  font-size: 0.975rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.social a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 2.5px solid #fff;
+  border-radius: 50%;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.35s var(--ease-bounce);
+}
+
+.social a:hover {
+  background: var(--soma-yellow);
+  color: var(--soma-blue-deep);
+  border-color: var(--soma-yellow);
+  transform: rotate(-12deg) scale(1.08);
+}
+
+.handle {
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.colTitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--soma-yellow);
+}
+
+.col ul {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.col a {
+  position: relative;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.88);
+  transition: color 0.2s ease, padding 0.3s var(--ease-bounce);
+}
+
+/* estrelinha que aparece antes do link */
+.col a::before {
+  content: "✦";
+  position: absolute;
+  left: -2px;
+  color: var(--soma-yellow);
+  opacity: 0;
+  transform: scale(0.4) rotate(-60deg);
+  transition:
+    opacity 0.2s ease,
+    transform 0.35s var(--ease-bounce);
+}
+
+.col a:hover {
+  color: #fff;
+  padding-left: 18px;
+}
+
+.col a:hover::before {
+  opacity: 1;
+  transform: none;
+}
+
+.phone {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 1.9rem);
+  color: #fff;
+  border-bottom: 3px solid var(--soma-red);
+  transition: color 0.2s ease;
+}
+
+.phone:hover {
+  color: var(--soma-yellow);
+}
+
+.units {
+  display: grid;
+  gap: 14px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.925rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.units li {
+  display: flex;
+  gap: 10px;
+}
+
+.units strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+.unitDot {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  margin-top: 5px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+/* ---------- Wordmark gigante ----------
+   As letras pulam uma de cada vez (S → O → M → A), acendem na cor
+   e voltam ao contorno. --i define a ordem no ciclo. */
+.giant {
+  --cycle: 4.2s;
+  display: flex;
+  justify-content: center;
+  gap: 0.02em;
+  padding: 0.1em 0 0.06em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(8rem, 28vw, 26rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  user-select: none;
+}
+
+.letter {
+  position: relative;
+  color: transparent;
+  -webkit-text-stroke: 3px rgba(255, 255, 255, 0.18);
+  animation: hop var(--cycle) var(--ease-out) infinite;
+  animation-delay: calc(var(--i) * 0.32s);
+}
+
+.perch {
+  position: absolute;
+  top: 0.04em;
+  left: 50%;
+  width: 0.2em;
+  height: 0.2em;
+  margin-left: -0.1em;
+  opacity: 0.85;
+  animation: perch var(--cycle) var(--ease-out) infinite;
+  animation-delay: calc(var(--i) * 0.32s);
+}
+
+@keyframes hop {
+  0% {
+    transform: translateY(0);
+    color: transparent;
+    -webkit-text-stroke-color: rgba(255, 255, 255, 0.18);
+  }
+  5% {
+    transform: translateY(-0.1em);
+    color: var(--c);
+    -webkit-text-stroke-color: var(--c);
+  }
+  10% {
+    transform: translateY(0);
+  }
+  13% {
+    transform: translateY(-0.025em);
+  }
+  16% {
+    transform: translateY(0);
+  }
+  40% {
+    color: var(--c);
+    -webkit-text-stroke-color: var(--c);
+  }
+  52%,
+  100% {
+    transform: translateY(0);
+    color: transparent;
+    -webkit-text-stroke-color: rgba(255, 255, 255, 0.18);
+  }
+}
+
+/* a forma "sentada" na letra pula um pouquinho mais alto */
+@keyframes perch {
+  0%,
+  16%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  6% {
+    transform: translateY(-0.2em) rotate(20deg) scale(1.2);
+  }
+}
+
+.lineBreak {
+  display: none;
+}
+
+/* legenda "SO de sorriso · MA de mágico" — só no celular */
+.giantCaption {
+  display: none;
+  padding-bottom: 28px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.giantCaption b {
+  color: var(--soma-yellow);
+}
+
+/* ---------- Barra final ---------- */
+.bottom {
+  position: relative;
+  background: var(--soma-blue);
+  border-top: 3px solid #fff;
+}
+
+.bottomInner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding-block: 18px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.top {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 2px solid #fff;
+  border-radius: var(--radius-pill);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.top:hover {
+  background: var(--soma-yellow);
+  color: var(--soma-blue-deep);
+  border-color: var(--soma-yellow);
+}
+
+.rocket {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.6s var(--ease-bounce);
+}
+
+.top:hover .rocket {
+  transform: translateY(-6px) rotate(8deg);
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 1100px) {
+  .main {
+    grid-template-columns: 1fr 1fr;
+  }
+  .columns {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+
+/* Celular: tudo centralizado, links em "pílulas" e o SOMA em duas linhas (SO / MA) */
+@media (max-width: 640px) {
+  .main {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-top: 56px;
+    text-align: center;
+  }
+
+  .brand {
+    display: grid;
+    justify-items: center;
+  }
+
+  .logoBadge img {
+    width: 132px;
+  }
+
+  .slogan {
+    margin-top: 22px;
+  }
+
+  .about {
+    margin-inline: auto;
+  }
+
+  .social {
+    justify-content: center;
+  }
+
+  .columns {
+    grid-row: auto;
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .col ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .col a {
+    display: inline-block;
+    padding: 7px 14px;
+    border: 2px solid rgba(255, 255, 255, 0.28);
+    border-radius: var(--radius-pill);
+    font-size: 0.925rem;
+  }
+
+  .col a::before {
+    display: none;
+  }
+
+  .col a:hover {
+    padding-left: 14px;
+    border-color: var(--soma-yellow);
+  }
+
+  .contact {
+    padding: 22px 20px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+  }
+
+  .units {
+    justify-items: center;
+    text-align: left;
+  }
+
+  .giant {
+    flex-wrap: wrap;
+    padding: 0.08em 0 0.04em;
+    font-size: min(64vw, 17rem);
+    line-height: 0.92;
+  }
+
+  .lineBreak {
+    display: block;
+    flex-basis: 100%;
+    height: 0;
+  }
+
+  .perch {
+    width: 0.15em;
+    height: 0.15em;
+    margin-left: -0.075em;
+  }
+
+  .giantCaption {
+    display: block;
+  }
+
+  .bottomInner {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letter,
+  .perch {
+    animation: none;
+  }
+}

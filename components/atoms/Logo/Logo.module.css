@@ -1,0 +1,30 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.symbol {
+  height: 44px;
+  width: auto;
+  transition: transform 0.5s var(--ease-bounce);
+}
+
+.wordmark {
+  height: 30px;
+  width: auto;
+}
+
+.logo:hover .symbol {
+  transform: rotate(-8deg) scale(1.06);
+}
+
+@media (max-width: 480px) {
+  .symbol {
+    height: 38px;
+  }
+  .wordmark {
+    height: 25px;
+  }
+}

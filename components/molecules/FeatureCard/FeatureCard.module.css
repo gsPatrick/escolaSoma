@@ -1,0 +1,185 @@
+.card {
+  --bg: var(--surface);
+  --shape-cut: var(--bg);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: clamp(22px, 2.4vw, 30px);
+  background: var(--bg);
+  color: var(--soma-blue-deep);
+  border: 3px solid var(--soma-blue-deep);
+  border-radius: var(--radius-lg);
+  box-shadow: 6px 6px 0 var(--soma-blue-deep);
+  overflow: hidden;
+  transition:
+    transform 0.45s var(--ease-bounce),
+    box-shadow 0.45s var(--ease-bounce);
+}
+
+.card:hover {
+  transform: translate(-3px, -3px) rotate(-1deg);
+  box-shadow: 10px 10px 0 var(--soma-blue-deep);
+}
+
+/* tons */
+.white {
+  --bg: var(--surface);
+}
+.yellow {
+  --bg: var(--soma-yellow);
+}
+.cream {
+  --bg: var(--soma-cream);
+}
+.pink {
+  --bg: var(--seg-infantil);
+}
+.mint {
+  --bg: var(--unit-garden);
+}
+.sky {
+  --bg: var(--soma-sky);
+}
+
+/* número de ficha, grande e vazado */
+.number {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3rem, 5vw, 4.4rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(29, 58, 112, 0.22);
+  transition: transform 0.45s var(--ease-bounce);
+}
+
+.card:hover .number {
+  transform: rotate(8deg) scale(1.08);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  padding: 12px;
+  background: var(--surface);
+  border: 2.5px solid var(--soma-blue-deep);
+  border-radius: 18px;
+  --shape-cut: var(--surface);
+  transition: transform 0.5s var(--ease-bounce);
+}
+
+.white .icon {
+  background: var(--soma-sky);
+  --shape-cut: var(--soma-sky);
+}
+
+.card:hover .icon {
+  animation: wiggle 0.6s var(--ease-out);
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  margin-top: 20px;
+  font-size: clamp(1.25rem, 1rem + 0.7vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  max-width: 18ch;
+}
+
+.text {
+  margin-top: 10px;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #34507f;
+}
+
+/* Variante grande (destaque) */
+.lg .title {
+  font-size: clamp(1.6rem, 1.1rem + 1.6vw, 2.4rem);
+  max-width: 16ch;
+}
+
+.lg .text {
+  font-size: var(--text-lg);
+  max-width: 46ch;
+}
+
+.lg .icon {
+  width: 72px;
+  height: 72px;
+  padding: 14px;
+}
+
+.lg .number {
+  font-size: clamp(4rem, 7vw, 6.4rem);
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-12deg) scale(1.08);
+  }
+  50% {
+    transform: rotate(9deg) scale(1.08);
+  }
+  75% {
+    transform: rotate(-4deg);
+  }
+}
+
+/* Variante larga (faixa horizontal) */
+.wide {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "icon title"
+    "icon text";
+  column-gap: 22px;
+  align-items: center;
+  padding-right: clamp(80px, 10vw, 140px);
+}
+
+.wide .icon {
+  grid-area: icon;
+}
+
+.wide .title {
+  grid-area: title;
+  margin-top: 0;
+  max-width: none;
+  align-self: end;
+}
+
+.wide .text {
+  grid-area: text;
+  margin-top: 4px;
+  align-self: start;
+}
+
+@media (max-width: 560px) {
+  .wide {
+    display: flex;
+    padding-right: clamp(22px, 2.4vw, 30px);
+  }
+  .wide .icon,
+  .wide .title,
+  .wide .text {
+    align-self: flex-start;
+  }
+  .wide .title {
+    margin-top: 20px;
+  }
+}

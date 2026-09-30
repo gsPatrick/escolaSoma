@@ -1,0 +1,155 @@
+/* Cartão de caderno quadriculado com a continha do nome */
+.card {
+  position: relative;
+  margin: 0;
+  padding: clamp(28px, 3.4vw, 44px) clamp(20px, 3vw, 40px) clamp(24px, 3vw, 36px);
+  background-color: var(--surface);
+  background-image:
+    linear-gradient(var(--grid-line) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, var(--grid-line) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  border: 3px solid var(--soma-blue-deep);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--stamp-lg);
+  rotate: 1.5deg;
+}
+
+.tape {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 96px;
+  height: 26px;
+  margin-left: -48px;
+  background: rgba(246, 202, 70, 0.75);
+  border: 1.5px dashed rgba(29, 58, 112, 0.35);
+  rotate: -3deg;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(8px, 1.4vw, 16px);
+  margin-top: 22px;
+}
+
+.term {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+/* Bloquinho de montar (material dourado / blocos lógicos) */
+.block {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: clamp(64px, 7vw, 92px);
+  height: clamp(64px, 7vw, 92px);
+  padding: 0 12px;
+  border: 3px solid var(--soma-blue-deep);
+  border-radius: 18px;
+  box-shadow: 4px 4px 0 var(--soma-blue-deep);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  letter-spacing: -0.01em;
+  transition: transform 0.4s var(--ease-bounce);
+}
+
+.term:hover .block {
+  transform: translateY(-4px) rotate(-4deg);
+}
+
+.red {
+  background: var(--soma-red);
+  color: #fff;
+}
+
+.yellow {
+  background: var(--soma-yellow);
+  color: var(--soma-blue-deep);
+}
+
+.blue {
+  background: var(--soma-blue);
+  color: #fff;
+  gap: 0;
+}
+
+.half:first-child {
+  color: #ffd9d7;
+}
+
+.half:last-child {
+  color: var(--soma-yellow);
+}
+
+.op {
+  display: grid;
+  place-items: center;
+  width: clamp(30px, 3vw, 40px);
+  height: clamp(64px, 7vw, 92px);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: var(--soma-blue-deep);
+}
+
+.word {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.word b {
+  color: var(--soma-red);
+  font-weight: 800;
+}
+
+.result .word {
+  color: var(--soma-blue);
+}
+
+.note {
+  max-width: 34ch;
+  margin: 26px auto 0;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.note strong {
+  color: var(--soma-blue-deep);
+}
+
+@media (max-width: 420px) {
+  .block {
+    min-width: 54px;
+    height: 54px;
+    padding: 0 8px;
+    font-size: 1.35rem;
+    border-radius: 14px;
+  }
+  .op {
+    width: 18px;
+    height: 54px;
+    font-size: 1.5rem;
+  }
+  .word {
+    font-size: 0.8rem;
+  }
+}

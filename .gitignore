@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+.vercel
+.DS_Store
+*.log
+.env*
+
+# material bruto de pesquisa (site antigo, posts do Instagram) — fica só local
+reference/assets
+reference/*.html

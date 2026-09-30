@@ -1,0 +1,75 @@
+.strip {
+  --tile: var(--mosaic-tile, clamp(64px, 7vw, 104px));
+  overflow: hidden;
+  border-block: 3px solid var(--soma-blue-deep);
+  background: var(--soma-blue-deep);
+}
+
+/* 4 cópias da sequência; anda 50% = 2 cópias → loop sem emenda */
+.track {
+  display: flex;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: slide 60s linear infinite;
+}
+
+.strip:hover .track {
+  animation-play-state: paused;
+}
+
+.tile {
+  position: relative;
+  width: var(--tile);
+  height: var(--tile);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  transition: transform 0.5s var(--ease-bounce);
+}
+
+.tile:hover .shape {
+  transform: rotate(18deg) scale(1.12);
+}
+
+.center {
+  inset: 18%;
+  width: 64%;
+  height: 64%;
+}
+
+.small {
+  inset: 28%;
+  width: 44%;
+  height: 44%;
+}
+
+.corner {
+  inset: 12% 0 0 12%;
+  width: 88%;
+  height: 88%;
+}
+
+.bottom {
+  left: 8%;
+  bottom: 0;
+  width: 84%;
+  height: 84%;
+  transform-origin: bottom center;
+}
+
+@keyframes slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}
