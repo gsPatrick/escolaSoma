@@ -157,6 +157,9 @@ function Kicker({ children }) {
 
 const TOTAL = 11;
 
+/* WhatsApp do Patrick, com mensagem pronta */
+const WHATSAPP = "https://wa.me/5571983141335?text=Ol%C3%A1%2C%20Patrick%21%20Vi%20a%20proposta%20do%20novo%20site%20da%20Escola%20SOMA%20e%20quero%20conversar.";
+
 export default function Pitch() {
   return (
     <>
@@ -178,7 +181,7 @@ export default function Pitch() {
           </h1>
           <p className={styles.coverSub}>Escola SOMA · Soma Vila + Soma Garden · Abrantes, Camaçari-BA</p>
           <p className={styles.coverBy}>Apresentado por Patrick · codebypatrick.dev · 2026</p>
-          <p className={styles.scrollHint}>Role ou use as setas do teclado ↓</p>
+          <p className={styles.scrollHint}>Role para ver a proposta ↓</p>
         </Slide>
 
         {/* 02 — Diagnóstico */}
@@ -431,7 +434,7 @@ export default function Pitch() {
             <Button href="/" size="lg" target="_blank">
               Ver o site completo
             </Button>
-            <Button href="https://codebypatrick.dev/" size="lg" variant="secondary" target="_blank" rel="noopener noreferrer">
+            <Button href={WHATSAPP} size="lg" variant="secondary" target="_blank" rel="noopener noreferrer">
               Falar com o Patrick
             </Button>
           </div>

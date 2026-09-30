@@ -51,13 +51,13 @@ export default function PitchNav({ total }) {
       <div className={styles.navInner}>
         <span className={styles.navBrand}>
           <img src="/brand/simbolo-s.png" alt="" width="144" height="121" />
-          Proposta · Escola SOMA
+          <span className={styles.navBrandText}>Proposta · Escola SOMA</span>
         </span>
         <span className={styles.counter} aria-live="polite">
           {String(current).padStart(2, "0")} <i>/</i> {String(total).padStart(2, "0")}
         </span>
         <Link href="/" className={styles.navLink} target="_blank">
-          Ver o site →
+          Ver o site <span className={styles.navArrow}>→</span>
         </Link>
       </div>
       <span className={styles.progress} style={{ transform: `scaleX(${progress})` }} aria-hidden="true" />

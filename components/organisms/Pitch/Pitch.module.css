@@ -92,8 +92,12 @@
   padding: calc(60px + clamp(40px, 6vw, 72px)) var(--gutter) clamp(56px, 7vw, 88px);
   overflow: hidden;
   scroll-snap-align: start;
-  scroll-margin-top: 0;
   border-bottom: 3px solid var(--soma-blue-deep);
+}
+
+/* vence a regra global section[id] { scroll-margin-top: 90px } */
+.slide[id] {
+  scroll-margin-top: 0;
 }
 
 .inner {
@@ -1023,9 +1027,18 @@
 }
 
 @media (max-width: 640px) {
-  .navBrand span,
-  .navBrand {
-    font-size: 0.9rem;
+  .navInner {
+    gap: 10px;
+  }
+  /* no celular a marca fica só com o símbolo */
+  .navBrandText {
+    display: none;
+  }
+  .navLink {
+    padding: 6px 12px;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    box-shadow: 2px 2px 0 var(--soma-blue-deep);
   }
   .stats,
   .elements,
