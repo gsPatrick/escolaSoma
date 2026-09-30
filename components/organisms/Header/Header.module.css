@@ -6,6 +6,8 @@
 
 /* ---------- Barra utilitária ---------- */
 .topbar {
+  position: relative;
+  z-index: 2;
   background: var(--soma-blue);
   color: #fff;
   font-size: 0.8125rem;
@@ -52,6 +54,8 @@ a.topbarItem:hover {
 
 /* ---------- Barra principal ---------- */
 .barWrap {
+  position: relative;
+  z-index: 2;
   transition: padding 0.4s var(--ease-out);
 }
 
@@ -256,10 +260,15 @@ a.topbarItem:hover {
   display: none;
   flex-direction: column;
   justify-content: center;
+  align-items: stretch;
+  flex-shrink: 0;
   gap: 5px;
   width: 46px;
   height: 46px;
   padding: 0 11px;
+  -webkit-appearance: none;
+  appearance: none;
+  color: var(--soma-blue-deep);
   border: 2.5px solid var(--soma-blue-deep);
   border-radius: 50%;
   background: var(--soma-yellow);
@@ -268,6 +277,7 @@ a.topbarItem:hover {
 
 .burger span {
   display: block;
+  width: 100%;
   height: 3px;
   border-radius: 3px;
   background: var(--soma-blue-deep);
@@ -288,11 +298,16 @@ a.topbarItem:hover {
 .mobile {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
   padding: calc(var(--header-h) + 60px) var(--gutter) 32px;
   background: var(--soma-blue);
   color: #fff;
+  overflow-x: hidden;
   overflow-y: auto;
+  overscroll-behavior: contain;
   animation: menuIn 0.45s var(--ease-out);
 }
 
@@ -309,6 +324,7 @@ a.topbarItem:hover {
 
 .mobileNav {
   position: relative;
+  z-index: 1;
   display: grid;
   gap: 22px;
 }
@@ -335,6 +351,7 @@ a.topbarItem:hover {
 .mobileGroup ul a {
   display: inline-block;
   padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.08);
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: var(--radius-pill);
   font-weight: 700;
@@ -342,6 +359,7 @@ a.topbarItem:hover {
 
 .mobileFoot {
   position: relative;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -358,16 +376,17 @@ a.topbarItem:hover {
 }
 
 .mStar {
-  top: 140px;
-  right: -20px;
-  width: 130px;
+  display: none;
+  top: 150px;
+  right: 12px;
+  width: 96px;
   animation: spin 14s linear infinite;
 }
 
 .mQuarter {
   bottom: 0;
   right: 0;
-  width: 160px;
+  width: 130px;
   opacity: 0.9;
 }
 
